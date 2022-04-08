@@ -21,7 +21,7 @@ collections:
     blank_collection: true
     collection_mode: hide
     sort_title: +02_+Streaming Collections
-    url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/separators/streaming_uk.jpg
+    url_poster: https://raw.githubusercontent.com/meisnate12/Plex-Meta-Manager-Images/master/separators/streaming.jpg
   All 4 Movies:
     template: {name: streaming, url: "All 4"}
     mdblist_list: https://mdblist.com/lists/yozoraxcii/all-4-movies
