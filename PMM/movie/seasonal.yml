@@ -5,9 +5,54 @@
 #  Call this from your config.yml (Movie only):      #
 #     metadata_path:                                 #
 #       - git: PMM/movie/seasonal                    #
+#         schedule_independence: never               #
+#         schedule_easter: never                     #
+#         schedule_valentine: never                  #
+#         schedule_st_patrick: never                 #
+#         schedule_thanksgiving_us: never            #
+#         schedule_thanksgiving_ca: never            #
+#         schedule_halloween: never                  #
+#         schedule_christmas: never                  #
+#         schedule_new_years: never                  #
 ######################################################
 
 templates:
+  Independence:
+    optional:
+      - schedule_independence
+    schedule: <<schedule_independence>>
+  Easter:
+    optional:
+      - schedule_easter
+    schedule: <<schedule_easter>>
+  Valentine:
+    optional:
+      - schedule_valentine
+    schedule: <<schedule_valentine>>
+  StPatrick:
+    optional:
+      - schedule_st_patrick
+    schedule: <<schedule_st_patrick>>
+  ThanksgivingUS:
+    optional:
+      - schedule_thanksgiving_us
+    schedule: <<schedule_thanksgiving_us>>
+  ThanksgivingCA:
+    optional:
+      - schedule_thanksgiving_ca
+    schedule: <<schedule_thanksgiving_ca>>
+  Halloween:
+    optional:
+      - schedule_halloween
+    schedule: <<schedule_halloween>>
+  Christmas:
+    optional:
+      - schedule_christmas
+    schedule: <<schedule_christmas>>
+  NewYears:
+    optional:
+      - schedule_new_years
+    schedule: <<schedule_new_years>>
   Holiday:
     smart_label: title.asc
     summary: |-
@@ -23,55 +68,72 @@ templates:
 collections:
   Independence Day Movies:
     template:
-      name: Holiday
-      start_date: 06/23
-      end_date: 07/11
-      season: independence
+      - name: Independence
+      - name: Holiday
+        start_date: 06/23
+        end_date: 07/11
+        season: independence
     imdb_list: 
       - https://www.imdb.com/list/ls068664510/
       - https://www.imdb.com/list/ls080925875/
   Easter Movies:
     template:
-      name: Holiday
-      start_date: 03/22
-      end_date: 04/25
-      season: easter
+      - name: Easter
+      - name: Holiday
+        start_date: 03/22
+        end_date: 04/25
+        season: easter
     imdb_list: 
       - https://www.imdb.com/list/ls062665509/
       - https://www.imdb.com/list/ls051733651/
   Valentine's Day Movies:
     template:
-      name: Holiday
-      start_date: 02/01
-      end_date: 02/29
-      season: valentine
+      - name: Valentine
+      - name: Holiday
+        start_date: 02/01
+        end_date: 02/29
+        season: valentine
     imdb_list:
       - https://www.imdb.com/list/ls000094398/
       - https://www.imdb.com/list/ls057783436/
       - https://www.imdb.com/list/ls064427905/
   St. Patrick's Day Movies:
     template:
-      name: Holiday
-      start_date: 03/01
-      end_date: 03/18
-      season: patrick
+      - name: StPatrick
+      - name: Holiday
+        start_date: 03/01
+        end_date: 03/18
+        season: patrick
     imdb_list: https://www.imdb.com/list/ls063934595/
-  Thanksgiving Movies:
+  Thanksgiving Movies US:
+    collection_name: Thanksgiving Movies
     template:
-      name: Holiday
-      ###USA###
-      start_date: 11/01
-      end_date: 11/30
-      season: thanksgiving
+      - name: ThanksgivingUS
+      - name: Holiday
+        start_date: 11/01
+        end_date: 11/30
+        season: thanksgiving
     imdb_list: 
       - https://www.imdb.com/list/ls000835734/
       - https://www.imdb.com/list/ls091597850/
+  Thanksgiving Movies CA:
+    collection_name: Thanksgiving Movies
+    template:
+      - name: ThanksgivingCA
+      - name: Holiday
+        start_date: 10/05
+        end_date: 10/20
+        season: thanksgiving
+    imdb_list:
+      - https://www.imdb.com/list/ls000835734/
+      - https://www.imdb.com/list/ls091597850/
   Halloween Movies:
-    template: 
-      name: Holiday
-      start_date: 10/01
-      end_date: 10/31
-      season: halloween
+    template:
+      - name: Halloween
+      - name: Holiday
+        start_date: 10/01
+        end_date: 10/31
+        season: halloween
     imdb_list:
       - https://www.imdb.com/list/ls023118929/
       - https://www.imdb.com/list/ls000099714/
@@ -84,15 +146,17 @@ collections:
       - 23437    # A Nightmare on Elm Street (2010)
   Christmas Movies:
     template:
-      name: Holiday
-      start_date: 12/01
-      end_date: 12/31
-      season: christmas
+      - name: Christmas
+      - name: Holiday
+        start_date: 12/01
+        end_date: 12/31
+        season: christmas
     imdb_list: https://www.imdb.com/list/ls000096828/
   New Year's Day Movies:
     template:
-      name: Holiday
-      start_date: 12/26
-      end_date: 01/04
-      season: years
+      - name: NewYears
+      - name: Holiday
+        start_date: 12/26
+        end_date: 01/04
+        season: years
     imdb_list: https://www.imdb.com/list/ls066838460/
